@@ -119,7 +119,7 @@ export default function ResourceModal({ isOpen, onClose, title, content }: Resou
           aria-labelledby="modal-title"
           role="dialog"
           aria-modal="true"
-          onClick={(e) => {
+          onClick={() => {
             console.log('Modal backdrop clicked');
             onClose();
           }}

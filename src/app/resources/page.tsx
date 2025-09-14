@@ -267,7 +267,15 @@ export default function ResourcesPage() {
     setModal(prev => ({ ...prev, isOpen: false }));
   };
 
-  const handleCardClick = (resource: any) => {
+  interface Resource {
+    title: string;
+    content?: string;
+    description: string;
+    details?: string;
+    buttons?: ButtonProps[];
+  }
+
+  const handleCardClick = (resource: Resource) => {
     console.log('Card clicked:', resource.title);
     console.log('Has content?', !!resource.content);
     if (resource.content) {
@@ -275,7 +283,7 @@ export default function ResourcesPage() {
     }
   };
 
-  const handleButtonClick = (e: React.MouseEvent, resource: any, button: any) => {
+  const handleButtonClick = (e: React.MouseEvent, resource: Resource, button: ButtonProps) => {
     e.stopPropagation();
     console.log('Button clicked:', button.label);
     console.log('Button has content?', !!button.content);

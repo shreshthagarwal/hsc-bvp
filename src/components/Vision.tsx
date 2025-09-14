@@ -1,65 +1,70 @@
-import React from 'react';
+'use client';
 
 const Vision = () => {
-  const objectives = [
-    "To foster academic excellence and research culture",
-    "To develop industry-relevant skills and innovation",
-    "To promote holistic development of students"
-  ];
+  const about = "Higher Study Cell (HSC) has been established in February 2019 to cater to various needs of the students who wish to opt for higher studies in their career. Students can consult HSC for help regarding seeking admission in foreign universities and its requirements. They can inquire about training opportunities arising outside college or university.";
 
-  const cards = [
+  const mission = "The key element of HSC is to establish a direct connection between the current student (who wishes to pursue higher studies) and the alumni who have pursued or are currently pursuing higher studies. Additionally, students can also approach HSC to seek help in preparation of material for admission such as writing statement of purpose (SOP), requesting letter of recommendation(s), and the like.";
+
+  const focusAreas = [
     {
-      id: 1,
-      title: "Academic Excellence",
-      content: "Promote cutting-edge research and innovation in technical education"
+      title: "Alumni Network",
+      description: "Collecting data of the Alumni who have done higher studies fostering a network among Universities, Colleges, and Institutions abroad committed to impart Higher Education and Collaborative Study programmes.",
+      icon: "👥"
     },
     {
-      id: 2,
-      title: "Industry Collaboration",
-      content: "Bridge the gap between academia and industry requirements"
+      title: "University Relations",
+      description: "Promoting new relationships between overseas Universities and Institutions and to help define the scope of such relationships through appropriate Memoranda of Understanding (MoUs).",
+      icon: "🎓"
     },
     {
-      id: 3,
-      title: "Student Development",
-      content: "Nurture well-rounded individuals with strong technical and soft skills"
+      title: "Educational Seminars",
+      description: "Organizing Seminars on 'Higher Education at various Universities abroad' periodically to keep students informed about global opportunities.",
+      icon: "📚"
     }
   ];
 
   return (
-    <div className="w-full py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F5EFE7' }}>
+    <div className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#F5EFE7]">
       <div className="max-w-7xl mx-auto">
-        {/* Heading and Description */}
-        <div className="mb-12 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Vision and Objectives</h2>
-          <p className="text-lg text-gray-800">
-            Our vision is to be a center of excellence in technical education, fostering innovation,
-            research, and holistic development to create future-ready professionals who can contribute
-            meaningfully to society and industry.
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+            Higher Study Cell
+          </h2>
+          <div className="w-28 h-1.5 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Empowering students to achieve their academic aspirations through guidance, resources, and global connections.
           </p>
         </div>
 
-        {/* 2x2 Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          {/* Left Card - 40% width */}
-          <div className="md:col-span-2 h-[50vh] border-2 border-black rounded-lg p-8 bg-[#F5EFE7]">
-            <h3 className="font-semibold text-xl mb-3">{cards[0].title}</h3>
-            <p className="text-gray-800">{cards[0].content}</p>
-          </div>
-          
-          {/* Right Column - 60% width */}
-          <div className="md:col-span-3 flex flex-col gap-[2vh]">
-            {/* Right Top Card */}
-            <div className="h-[24vh] border-2 border-black rounded-lg p-6 bg-[#F5EFE7]">
-              <h3 className="font-semibold text-lg mb-2">{cards[1].title}</h3>
-              <p className="text-gray-800">{cards[1].content}</p>
-            </div>
-            
-            {/* Right Bottom Card */}
-            <div className="h-[24vh] border-2 border-black rounded-lg p-6 bg-[#F5EFE7]">
-              <h3 className="font-semibold text-lg mb-2">{cards[2].title}</h3>
-              <p className="text-gray-800">{cards[2].content}</p>
+        {/* About Section */}
+        <div className="relative group mb-20">
+          <div className="absolute -inset-1 bg-gradient-to-r from-orange-300 to-orange-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm"></div>
+          <div className="relative p-8 bg-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Our Purpose</h3>
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">{about}</p>
+              <p className="text-gray-700 leading-relaxed">{mission}</p>
             </div>
           </div>
+        </div>
+
+        {/* Focus Areas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {focusAreas.map((area) => (
+            <div key={area.title} className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-300 to-orange-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm"></div>
+              <div className="relative h-full p-8 bg-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="text-5xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                  {area.icon}
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-black mb-3 group-hover:text-orange-600 transition-colors">
+                  {area.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed flex-grow">{area.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

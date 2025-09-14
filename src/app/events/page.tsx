@@ -170,13 +170,10 @@ const events: Event[] = [
 
 const EventCard = ({ event }: { event: Event }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
       className="relative bg-white rounded-xl overflow-hidden flex flex-col shadow-md transition-all duration-200 hover:shadow-lg max-w-5xl mx-auto my-4 w-full"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col md:flex-row h-full">
         {/* Date Section - Orange */}

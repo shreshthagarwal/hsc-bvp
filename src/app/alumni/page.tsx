@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 
 const alumniData = [
@@ -91,7 +89,6 @@ const alumniData = [
 
 
 const AlumniCard = ({ alumni, index }: { alumni: typeof alumniData[0], index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative bg-white rounded-lg overflow-hidden flex shadow-sm transition-all duration-200 hover:shadow-md max-w-5xl mx-auto my-1.5 w-full min-h-[4.5rem] md:h-18">
@@ -150,11 +147,7 @@ export default function AlumniPage() {
   }, {} as Record<string, typeof alumniData>);
 
   const years = Object.keys(alumniByYear).sort((a, b) => b.localeCompare(a));
-  const [selectedYear, setSelectedYear] = useState<string | 'all'>('all');
-
-  const filteredYears = selectedYear === 'all' 
-    ? years 
-    : [selectedYear];
+  const filteredYears = years;
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5EFE7' }}>
@@ -177,11 +170,11 @@ export default function AlumniPage() {
                   </span>
                 </h2>
                 <div className="space-y-3">
-                  {alumniByYear[year].map((alumni, index) => (
+                  {alumniByYear[year].map((alumni, idx) => (
                     <AlumniCard 
                       key={alumni.id} 
                       alumni={alumni} 
-                      index={alumniByYear[year].findIndex(a => a.id === alumni.id)} 
+                      index={idx} 
                     />
                   ))}
                 </div>
