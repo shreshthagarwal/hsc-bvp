@@ -67,7 +67,7 @@ const Faculty = () => {
       role: 'Member', 
       designation: 'Assistant Professor, Department of Applied Sciences', 
       email: 'rupali.pandey@bharatividyapeeth.edu', 
-      image: '/assets/faculty/DrRupali.png' 
+      image: '/assets/faculty/DrRupali.jpg' 
     },
   ];
 

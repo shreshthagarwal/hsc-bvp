@@ -1,6 +1,6 @@
 'use client';
 
-import { Raleway, Inter } from 'next/font/google';
+import { Raleway, Inter, Oswald } from 'next/font/google';
 import "./globals.css";
 
 const inter = Inter({
@@ -16,13 +16,20 @@ const raleway = Raleway({
   display: 'swap',
 });
 
+const oswald = Oswald({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-oswald',
+  display: 'swap',
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${raleway.variable}`}>
+    <html lang="en" className={`${inter.variable} ${raleway.variable} ${oswald.variable}`}>
       <body className="font-sans">
         <style jsx global>{`
           h1, h2, h3, h4, h5, h6 {
